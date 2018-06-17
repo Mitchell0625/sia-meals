@@ -11,3 +11,4 @@ export default (
     <Route path="/meals" component={MealPlan} />
   </Switch>
 );
+//create route for about page ==> Header About(inside Main) Footer

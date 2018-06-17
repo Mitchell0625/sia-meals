@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Main from "../subcomponents/Main";
+import Main from "../Main/Main";
 
 class Landing extends Component {
   render() {
