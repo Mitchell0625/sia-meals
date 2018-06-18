@@ -11,6 +11,9 @@
 
 # misc
 .env
+.sass-cache/
+*.css.map
+*.scss.map
 .DS_Store
 .env.local
 .env.development.local
