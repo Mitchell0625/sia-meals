@@ -1,5 +1,6 @@
 import React from "react";
 import "./Header.css";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -13,7 +14,9 @@ const Header = () => {
       <nav className="navbar">
         <ul>
           <li>About</li>
-          <li>Meals</li>
+          <Link to="/meals">
+            <li>Meals</li>
+          </Link>
           <li>Contact</li>
         </ul>
         {/* {admin && <i class="fas fa-user-circle" />} if user is admin */}

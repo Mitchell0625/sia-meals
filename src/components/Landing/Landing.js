@@ -5,7 +5,9 @@ class Landing extends Component {
   render() {
     return (
       <div className="landing-container">
-        <h1>Meals on wheels</h1>
+        <h2>Fresh</h2>
+        <h2>Flavorful</h2>
+        <h2>Fast</h2>
       </div>
     );
   }

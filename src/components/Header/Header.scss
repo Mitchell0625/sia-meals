@@ -17,13 +17,14 @@
   display: none;
 }
 nav {
-  // width: 60%;
   ul {
     @extend %flexing;
     justify-content: space-between;
   }
-  li {
+  a {
+    color: #fff;
     margin: 0px 10px;
+    text-decoration: none;
   }
 }
 
