@@ -4,7 +4,12 @@ import "./Header.css";
 const Header = () => {
   return (
     <div className="header-page">
-      <div>SuddenlySia</div>
+      <div className="title">SuddenlySia</div>
+      <div className="mobile-bars">
+        <div className="bar bar1" />
+        <div className="bar bar2" />
+        <div className="bar bar3" />
+      </div>
       <nav className="navbar">
         <ul>
           <li>About</li>
@@ -13,6 +18,11 @@ const Header = () => {
         </ul>
         {/* {admin && <i class="fas fa-user-circle" />} if user is admin */}
       </nav>
+      <ul className="slide">
+        <li>About</li>
+        <li>Meals</li>
+        <li>Contact</li>
+      </ul>
     </div>
   );
 };
