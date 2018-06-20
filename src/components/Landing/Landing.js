@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Main from "../Main/Main";
 
 class Landing extends Component {
   render() {
     return (
-      <div>
-        <Main />
+      <div className="landing-container">
+        <h1>Meals on wheels</h1>
       </div>
     );
   }

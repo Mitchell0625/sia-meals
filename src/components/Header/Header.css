@@ -1,0 +1,16 @@
+.header-page, .header-page nav ul {
+  display: flex;
+  align-items: center; }
+
+.header-page {
+  width: 100vw;
+  padding: 20px;
+  justify-content: space-between; }
+  .header-page div {
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 36px;
+    line-height: 40px; }
+  .header-page nav ul {
+    justify-content: space-between; }
+
+/*# sourceMappingURL=Header.css.map */
