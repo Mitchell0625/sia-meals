@@ -1,6 +1,8 @@
-const firebase = require("firebase/app");
+import * as firebase from "firebase";
+
+// const firebase = require("firebase/app");
 const config = {
-  apiKey: `${REACT_APP_FIREBASE_API_KEY}`,
+  apiKey: "AIzaSyAN9RVvH_aWNDbWYmMc9kxot4qYqpthyc8",
   authDomain: "mealplan-app.firebaseapp.com",
   databaseURL: "https://mealplan-app.firebaseio.com",
   projectId: "mealplan-app",
@@ -11,3 +13,5 @@ firebase.initializeApp(config);
 
 const database = firebase.database();
 const auth = firebase.auth();
+
+export { auth, database };
