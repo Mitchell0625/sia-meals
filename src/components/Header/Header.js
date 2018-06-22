@@ -2,10 +2,12 @@ import React from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = props => {
   return (
     <div className="header-page">
-      <div className="title">SuddenlySia</div>
+      <Link to="/">
+        <div className="title">SuddenlySia</div>
+      </Link>
       <div className="mobile-bars">
         <div className="bar bar1" />
         <div className="bar bar2" />

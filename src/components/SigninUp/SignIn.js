@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { newCreateUserWithEmailAndPassword } from "../../firebase/auth";
-
+import { provider } from "../../firebase/firebase";
 class SignIn extends Component {
   constructor() {
     super();
