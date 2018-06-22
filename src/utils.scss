@@ -5,7 +5,10 @@ $text-font: "Open Sans", sans-serif;
   display: flex;
   align-items: center;
 }
-
+%page-content {
+  margin: 40px auto;
+  padding-top: 20px;
+}
 // desktop
 
 // mobile

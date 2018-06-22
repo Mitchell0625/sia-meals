@@ -2,7 +2,7 @@ import * as firebase from "firebase";
 
 // const firebase = require("firebase/app");
 const config = {
-  apiKey: REACT_APP_FIREBASE,
+  apiKey: process.env.REACT_APP_FIREBASE,
   authDomain: "mealplan-app.firebaseapp.com",
   databaseURL: "https://mealplan-app.firebaseio.com",
   projectId: "mealplan-app",

@@ -1,11 +1,17 @@
 import React, { Component } from "react";
-import SignIn from "../SigninUp/SignIn";
+import Meals from "./Meals";
+import "./MealPlan.css";
 class MealPlan extends Component {
   render() {
+    // const mappedMeals = this.props.meals((e, i) => {
+    //   return (
+    //     <Meals breakfast={e.breakfast} lunch={e.lunch} dinner={e.dinner} />
+    //   );
+    // });
     return (
-      <div>
-        MealPlan
-        <SignIn />
+      <div className="mealplan-page">
+        {/* {admin && <button>Update Menu</button>} if admin */}
+        {/* <div className="mealplan-container">{mappedMeals}</div> */}
       </div>
     );
   }
