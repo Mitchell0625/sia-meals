@@ -28,7 +28,9 @@ const Header = props => {
         <li>Meals</li>
         <li>Contact</li>
       </ul>
-      <button onClick={() => props.userSignOut()}> Leave</button>
+      {props.user && (
+        <button onClick={() => props.userSignOut()}> Leave</button>
+      )}
     </div>
   );
 };

@@ -3,6 +3,8 @@ import { userSignInWithEmailAndPassword } from "../../firebase/auth";
 // import { auth } from "../../firebase/firebase";
 import { provider, auth } from "../../firebase/firebase";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { addUser } from "../../ducks/reducer";
 
 class SignIn extends Component {
   constructor() {
@@ -27,7 +29,14 @@ class SignIn extends Component {
     e.preventDefault();
   };
   authListener = () => {
-    auth.onAuthStateChanged(this.state.user);
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        this.setState({ user });
+        // this.props.addUser(this.state.user)
+      } else {
+        this.setState({ user: null });
+      }
+    });
   };
   render() {
     return (
@@ -51,4 +60,14 @@ class SignIn extends Component {
     );
   }
 }
-export default SignIn;
+
+function mapStateToProps(state) {
+  const user = state.reducer;
+  return {
+    user
+  };
+}
+export default connect(
+  mapStateToProps,
+  { addUser }
+)(SignIn);
