@@ -1,7 +1,12 @@
 import React, { Component } from "react";
-import { newCreateUserWithEmailAndPassword } from "../../firebase/auth";
-import {auth}  from '../../firebase/auth';
-import { provider } from "../../firebase/firebase";
+import {
+  newCreateUserWithEmailAndPassword,
+  userSignInWithEmailAndPassword
+} from "../../firebase/auth";
+// import { auth } from "../../firebase/firebase";
+import { provider, auth } from "../../firebase/firebase";
+import { Link } from "react-router-dom";
+
 class SignIn extends Component {
   constructor() {
     super();
@@ -11,20 +16,27 @@ class SignIn extends Component {
       user: {}
     };
     this.handleSignIn = this.handleSignIn.bind(this);
+    this.signInUser = this.signInUser.bind(this);
   }
   handleSignIn = e => {
     this.setState(() => ({ [e.target.name]: e.target.value }));
   };
-  newCreateUserWithEmailAndPassword(email, password)
 
-  authListener =() => {
-    auth.onAuthStateChanged
-  }
+  signInUser = e => {
+    auth
+      .userSignInWithEmailAndPassword(this.state.email, this.state.password)
+      .then(() => {})
+      .catch(err => console.log(err));
+    e.preventDefault();
+  };
+  authListener = () => {
+    auth.onAuthStateChanged(this.state.user);
+  };
   render() {
     return (
       <div>
         <h2>Sign in</h2>
-        <form>
+        <form onSubmit={this.signInUser}>
           <p>Email</p>
           <input type="text" placeholder="Email" name={this.state.email} />
           <p>Password</p>
@@ -33,7 +45,11 @@ class SignIn extends Component {
             placeholder="Password"
             name={this.state.password}
           />
+          <input type="submit" value="Sign In" />
         </form>
+        <Link to="/signup">
+          <p>Create an Account</p>
+        </Link>
       </div>
     );
   }

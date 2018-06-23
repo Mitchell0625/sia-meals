@@ -6,7 +6,7 @@ const Payment = () => {
   return (
     <div>
       Payment Page
-      {!this.props.user ? <SignIn /> : ""}
+      {/* {!this.props.user ? <SignIn /> : ""} */}
       <SignIn />
     </div>
   );
