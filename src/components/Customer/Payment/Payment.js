@@ -5,7 +5,9 @@ import SignIn from "../../SigninUp/SignIn";
 const Payment = () => {
   return (
     <div>
-      Payment Page<SignIn />
+      Payment Page
+      {!this.props.user ? <SignIn /> : ""}
+      <SignIn />
     </div>
   );
 };
