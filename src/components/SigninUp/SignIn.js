@@ -1,8 +1,5 @@
 import React, { Component } from "react";
-import {
-  newCreateUserWithEmailAndPassword,
-  userSignInWithEmailAndPassword
-} from "../../firebase/auth";
+import { userSignInWithEmailAndPassword } from "../../firebase/auth";
 // import { auth } from "../../firebase/firebase";
 import { provider, auth } from "../../firebase/firebase";
 import { Link } from "react-router-dom";

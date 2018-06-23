@@ -13,7 +13,14 @@ class SignUp extends Component {
     );
   };
   render() {
-    return <div>SignUp</div>;
+    return (
+      <div>
+        <h2>Create an Account</h2>
+        <form>
+          <input type="text" />
+        </form>
+      </div>
+    );
   }
 }
 export default SignUp;
