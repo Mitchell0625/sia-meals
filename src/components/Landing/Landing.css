@@ -1,5 +1,7 @@
 .landing-container {
-  margin: 40px auto;
-  padding-top: 20px; }
+  font-family: "Open Sans", sans-serif;
+  background-image: url("../../images/landing.jpg");
+  background-size: cover;
+  height: 100%; }
 
 /*# sourceMappingURL=Landing.css.map */

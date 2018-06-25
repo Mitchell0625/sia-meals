@@ -22,8 +22,7 @@ class SignIn extends Component {
   };
 
   signInUser = e => {
-    auth
-      .userSignInWithEmailAndPassword(this.state.email, this.state.password)
+    userSignInWithEmailAndPassword(this.state.email, this.state.password)
       .then(() => {})
       .catch(err => console.log(err));
     e.preventDefault();
@@ -32,7 +31,7 @@ class SignIn extends Component {
     auth.onAuthStateChanged(user => {
       if (user) {
         this.setState({ user });
-        // this.props.addUser(this.state.user)
+        this.props.addUser(this.state.user);
       } else {
         this.setState({ user: null });
       }

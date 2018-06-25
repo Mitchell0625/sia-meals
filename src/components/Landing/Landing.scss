@@ -1,5 +1,9 @@
 @import "../../utils.scss";
 
 .landing-container {
-  @extend %page-content;
+  // @extend %page-content;
+  font-family: "Open Sans", sans-serif;
+  background-image: url("../../images/landing.jpg");
+  background-size: cover;
+  height: 100%;
 }
