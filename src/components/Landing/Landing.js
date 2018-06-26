@@ -9,6 +9,7 @@ class Landing extends Component {
         <h2>Fresh</h2>
         <h2>Flavorful</h2>
         <h2>Fast</h2>
+        <SignInn />
       </div>
     );
   }

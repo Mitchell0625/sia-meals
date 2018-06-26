@@ -1,14 +1,55 @@
 import React from "react";
+import { userSignInWithEmailAndPassword } from "../../firebase/auth";
 
 class SignIn extends React.Component {
+  constructor(props) {
+    super(props);
+    // this.signInUser = this.signInUser.bind(this);
+  }
+
+  //   signInUser = e => {
+  //     const logi = this.props.logi;
+  //     userSignInWithEmailAndPassword(logi.email, logi.password)
+  //       .then(() => {})
+  //       .catch(err => console.log(err));
+  //     e.preventDefault();
+  //   };
   render() {
-    return <Form />;
+    // const logi = this.props.log;
+    console.log(this.props.logi);
+    return <Form signed={this.props.logi.handleSignIn} />;
+  }
+}
+
+class SignUp extends React.Component {
+  constructor(props) {
+    super(props);
+    // this.signInUser = this.signInUser.bind(this);
+  }
+
+  //   signInUser = e => {
+  //     const logi = this.props.logi;
+  //     userSignInWithEmailAndPassword(logi.email, logi.password)
+  //       .then(() => {})
+  //       .catch(err => console.log(err));
+  //     e.preventDefault();
+  //   };
+  render() {
+    // const logi = this.props.log;
+    console.log(this.props.logi.logi);
+    return (
+      <Form
+        signed={this.props.logi.signInUser}
+        email={this.props.logi.state.email}
+        password={this.props.logi.state.password}
+      />
+    );
   }
 }
 
 class Sign extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       email: "",
       password: "",
@@ -20,11 +61,19 @@ class Sign extends React.Component {
   handleSignIn = e => {
     this.setState(() => ({ [e.target.name]: e.target.value }));
   };
+  signInUser = e => {
+    // const logi = this.props.logi;
+    console.log("hit");
+    userSignInWithEmailAndPassword(this.state.email, this.state.password)
+      .then(() => {})
+      .catch(err => console.log(err));
+    // e.preventDefault();
+  };
 
   render() {
     return (
       <div>
-        {this.props.render(this.state)}
+        {this.props.render(this)}
         {/* <form onSubmit={this.signInUser}>
           <p>Email</p>
           <input type="text" placeholder="Email" name={this.state.email} />
@@ -53,12 +102,14 @@ class SignInn extends React.Component {
 }
 export default SignInn;
 
-export const Form = props => {
-  <form onSubmit={this.signInUser}>
-    <p>Email</p>
-    <input type="text" placeholder="Email" name={props.email} />
-    <p>Password</p>
-    <input type="text" placeholder="Password" name={props.password} />
-    <input type="submit" value="Sign In" />
-  </form>;
+const Form = props => {
+  return (
+    <form onSubmit={props.signed}>
+      <p>Email</p>
+      <input type="text" placeholder="Email" name={props.email} />
+      <p>Password</p>
+      <input type="text" placeholder="Password" name={props.password} />
+      <input type="submit" value="Sign In" />
+    </form>
+  );
 };
