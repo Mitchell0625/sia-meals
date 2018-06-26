@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Landing.css";
+import SignInn from "../SigninUp/Sign";
 
 class Landing extends Component {
   render() {
