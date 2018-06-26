@@ -1,26 +1,19 @@
 import React, { Component } from "react";
 import { auth } from "../../firebase/firebase";
+import theSign, { Form } from "./Sign";
 
 class SignUp extends Component {
-  state = {
-    email: "",
-    password: ""
-  };
-  newUser = e => {
-    auth.newCreateUserWithEmailAndPassword(
-      this.state.email,
-      this.state.password
-    );
-  };
   render() {
     return (
       <div>
         <h2>Create an Account</h2>
-        <form>
-          <input type="text" />
-        </form>
+        <Form
+          signed={this.props.newUser}
+          email={this.props.email}
+          password={this.props.password}
+        />
       </div>
     );
   }
 }
-export default SignUp;
+export default theSign(SignUp);

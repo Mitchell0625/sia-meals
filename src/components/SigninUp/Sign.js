@@ -1,5 +1,8 @@
 import React, { Component } from "react";
-import { userSignInWithEmailAndPassword } from "../../firebase/auth";
+import {
+  userSignInWithEmailAndPassword,
+  newCreateUserWithEmailAndPassword
+} from "../../firebase/auth";
 
 const theSign = WrappedComponent => {
   class Sign extends Component {
@@ -12,6 +15,7 @@ const theSign = WrappedComponent => {
       };
       this.handleSignIn = this.handleSignIn.bind(this);
       this.signInUser = this.signInUser.bind(this);
+      this.newUser = this.newUser.bind(this);
     }
     handleSignIn = e => {
       this.setState(() => ({ [e.target.name]: e.target.value }));
@@ -23,14 +27,17 @@ const theSign = WrappedComponent => {
         .catch(err => console.log(err));
       e.preventDefault();
     };
-
+    newUser = e => {
+      newCreateUserWithEmailAndPassword(this.state.email, this.state.password);
+    };
     render() {
       const { email, password, user } = this.state;
       const otherProps = {
         email: email,
         password: password,
         handleSignIn: this.handleSignIn,
-        signInUser: this.signInUser
+        signInUser: this.signInUser,
+        newUser: this.newUser
       };
       return (
         <div>
