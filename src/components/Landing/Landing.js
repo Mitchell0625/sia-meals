@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Landing.css";
-import SignInn from "../SigninUp/Sign";
+import SignIn from "../SigninUp/SignIn";
 
 class Landing extends Component {
   render() {
@@ -9,7 +9,7 @@ class Landing extends Component {
         <h2>Fresh</h2>
         <h2>Flavorful</h2>
         <h2>Fast</h2>
-        <SignInn />
+        <SignIn />
       </div>
     );
   }
