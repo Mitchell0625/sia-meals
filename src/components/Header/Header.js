@@ -23,6 +23,14 @@ const Header = props => {
         </ul>
         {/* {admin && <i class="fas fa-user-circle" />} if user is admin */}
       </nav>
+      {!props.user ? (
+        <div>
+          <Link to="/login">Login</Link>
+          <Link to="/signup">Sign Up</Link>
+        </div>
+      ) : (
+        ""
+      )}
       <ul className="slide">
         <li>About</li>
         <li>Meals</li>

@@ -28,7 +28,11 @@ const theSign = WrappedComponent => {
       e.preventDefault();
     };
     newUser = e => {
-      newCreateUserWithEmailAndPassword(this.state.email, this.state.password);
+      newCreateUserWithEmailAndPassword(
+        this.state.email,
+        this.state.password
+      ).catch(err => console.log(err));
+      e.preventDefault();
     };
     render() {
       const { email, password, user } = this.state;
@@ -52,6 +56,7 @@ const theSign = WrappedComponent => {
 export default theSign;
 
 export const Form = props => {
+  console.log(props.signed);
   return (
     <form onSubmit={props.signed}>
       <p>Email</p>

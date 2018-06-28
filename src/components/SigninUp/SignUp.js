@@ -3,6 +3,9 @@ import { auth } from "../../firebase/firebase";
 import theSign, { Form } from "./Sign";
 
 class SignUp extends Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
       <div>
