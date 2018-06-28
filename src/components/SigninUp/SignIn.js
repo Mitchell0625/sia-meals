@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import { userSignInWithEmailAndPassword } from "../../firebase/auth";
-// import { auth } from "../../firebase/firebase";
 import { provider, auth } from "../../firebase/firebase";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
