@@ -4,6 +4,9 @@ import {
   newCreateUserWithEmailAndPassword
 } from "../../firebase/auth";
 
+const byPropKey = (propertyName, value) => () => ({
+  [propertyName]: value
+});
 const theSign = WrappedComponent => {
   class Sign extends Component {
     constructor(props) {
@@ -18,24 +21,33 @@ const theSign = WrappedComponent => {
       this.newUser = this.newUser.bind(this);
     }
     handleSignIn = e => {
-      this.setState(() => ({ [e.target.name]: e.target.value }));
+      // e.preventDefault();
+      this.setState({ [e.target.name]: e.target.value });
     };
     signInUser = e => {
       console.log("hit");
       userSignInWithEmailAndPassword(this.state.email, this.state.password)
-        .then(() => {})
+        .then(user => {
+          this.setState({ user: user });
+        })
         .catch(err => console.log(err));
       e.preventDefault();
     };
+
     newUser = e => {
-      newCreateUserWithEmailAndPassword(
-        this.state.email,
-        this.state.password
-      ).catch(err => console.log(err));
+      newCreateUserWithEmailAndPassword(this.state.email, this.state.password)
+        .then(user => {
+          this.setState({ user: user });
+        })
+        .catch(error => {
+          this.setState(byPropKey("error", error));
+        });
+      // console.log(err));
       e.preventDefault();
     };
     render() {
       const { email, password, user } = this.state;
+      // console.log(email);
       const otherProps = {
         email: email,
         password: password,
@@ -56,13 +68,22 @@ const theSign = WrappedComponent => {
 export default theSign;
 
 export const Form = props => {
-  console.log(props.signed);
   return (
     <form onSubmit={props.signed}>
       <p>Email</p>
-      <input type="text" placeholder="Email" name={props.email} />
+      <input
+        type="text"
+        placeholder="Email"
+        name={props.email}
+        onChange={props.handleSignIn}
+      />
       <p>Password</p>
-      <input type="text" placeholder="Password" name={props.password} />
+      <input
+        type="text"
+        placeholder="Password"
+        name={props.password}
+        onChange={props.handleSignIn}
+      />
       <input type="submit" value="Sign In" />
     </form>
   );

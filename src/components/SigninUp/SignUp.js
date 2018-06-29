@@ -7,6 +7,7 @@ class SignUp extends Component {
     super(props);
   }
   render() {
+    console.log(this.props.email);
     return (
       <div>
         <h2>Create an Account</h2>
@@ -14,6 +15,7 @@ class SignUp extends Component {
           signed={this.props.newUser}
           email={this.props.email}
           password={this.props.password}
+          handleSignIn={this.props.handleSignIn}
         />
       </div>
     );
