@@ -23,6 +23,7 @@ const theSign = WrappedComponent => {
     handleSignIn = e => {
       // e.preventDefault();
       this.setState({ [e.target.name]: e.target.value });
+      console.log("hit");
     };
     signInUser = e => {
       console.log("hit");
@@ -46,6 +47,7 @@ const theSign = WrappedComponent => {
       e.preventDefault();
     };
     render() {
+      console.log(this.state.email);
       const { email, password, user } = this.state;
       // console.log(email);
       const otherProps = {
@@ -74,14 +76,14 @@ export const Form = props => {
       <input
         type="text"
         placeholder="Email"
-        name={props.email}
+        name="email"
         onChange={props.handleSignIn}
       />
       <p>Password</p>
       <input
         type="text"
         placeholder="Password"
-        name={props.password}
+        name="password"
         onChange={props.handleSignIn}
       />
       <input type="submit" value="Sign In" />
