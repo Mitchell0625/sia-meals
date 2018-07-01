@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import SignIn from "./SignIn";
-const styles = {
-  zIndex: 1
-};
+import "./Modal.css";
 
 class Modal extends Component {
   constructor(props) {
@@ -10,7 +8,7 @@ class Modal extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="modal-container">
         <SignIn />
       </div>
     );
