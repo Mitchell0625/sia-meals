@@ -2,19 +2,19 @@ import React, { Component } from "react";
 import { provider, auth } from "../../firebase/firebase";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { addUser } from "../../ducks/reducer";
+
 import theSign, { Form } from "./Sign";
 
-//   authListener = () => {
-//     auth.onAuthStateChanged(user => {
-//       if (user) {
-//         this.setState({ user });
-//         this.props.addUser(this.state.user);
-//       } else {
-//         this.setState({ user: null });
-//       }
-//     });
-//   };
+// authListener = () => {
+//   auth.onAuthStateChanged(user => {
+//     if (user) {
+//       this.setState({ user });
+//       this.props.addUser(this.state.user);
+//     } else {
+//       this.setState({ user: null });
+//     }
+//   });
+// };
 
 // function mapStateToProps(state) {
 //   const user = state.reducer;
