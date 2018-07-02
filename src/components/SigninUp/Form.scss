@@ -1,0 +1,11 @@
+@import "../../utils.scss";
+
+.form-container {
+  @extend %flexing;
+  flex-direction: column;
+  width: 100%;
+  input input[type="submit"] {
+    @extend %callButton;
+    display: block;
+  }
+}

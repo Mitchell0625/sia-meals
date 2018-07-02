@@ -11,6 +11,9 @@
     line-height: 40px;
   }
 }
+.button {
+  @extend %callButton;
+}
 
 .mobile-bars,
 .slide {

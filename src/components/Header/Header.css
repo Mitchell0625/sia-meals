@@ -2,6 +2,13 @@
   display: flex;
   align-items: center; }
 
+.button {
+  padding: 10px 40px;
+  background-color: #0d9922;
+  border: 2px solid #0b851dfb;
+  border-radius: 4px;
+  margin: 20px; }
+
 .header-page {
   width: 100vw;
   padding: 20px;

@@ -25,8 +25,12 @@ const Header = props => {
       </nav>
       {!props.user ? (
         <div>
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Sign Up</Link>
+          <Link to="/login" className="button">
+            Login
+          </Link>
+          <Link to="/signup" className="button">
+            Register
+          </Link>
         </div>
       ) : (
         ""

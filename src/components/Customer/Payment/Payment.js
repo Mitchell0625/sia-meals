@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { StripeCheckout } from "react-stripe-checkout";
 // import SignIn from "../../SigninUp/SignIn";
-import Modal from "../../SigninUp/Modal";
+import Modal from "../../SigninUp/Modal/Modal";
 
 class Payment extends Component {
   constructor() {

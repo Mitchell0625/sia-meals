@@ -1,0 +1,18 @@
+.form-container {
+  display: flex;
+  align-items: center; }
+
+.form-container input input[type="submit"] {
+  padding: 10px 40px;
+  background-color: #0d9922;
+  border: 2px solid #0b851dfb;
+  border-radius: 4px;
+  margin: 20px; }
+
+.form-container {
+  flex-direction: column;
+  width: 100%; }
+  .form-container input input[type="submit"] {
+    display: block; }
+
+/*# sourceMappingURL=Form.css.map */

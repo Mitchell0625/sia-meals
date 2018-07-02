@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import SignIn from "./SignIn";
+import SignIn from "../SignIn";
 import "./Modal.css";
 
 class Modal extends Component {

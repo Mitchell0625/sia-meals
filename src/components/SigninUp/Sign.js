@@ -5,6 +5,7 @@ import {
 } from "../../firebase/auth";
 import { connect } from "react-redux";
 import { addUser } from "../../ducks/reducer";
+import "./Form.css";
 
 const byPropKey = (propertyName, value) => () => ({
   [propertyName]: value
@@ -85,22 +86,24 @@ export default theSign;
 
 export const Form = props => {
   return (
-    <form onSubmit={props.signed}>
-      <p>Email</p>
-      <input
-        type="text"
-        placeholder="Email"
-        name="email"
-        onChange={props.handleSignIn}
-      />
-      <p>Password</p>
-      <input
-        type="text"
-        placeholder="Password"
-        name="password"
-        onChange={props.handleSignIn}
-      />
-      <input type="submit" value="Sign In" />
-    </form>
+    <div className="form-container">
+      <form onSubmit={props.signed}>
+        <p>Email</p>
+        <input
+          type="text"
+          placeholder="Email"
+          name="email"
+          onChange={props.handleSignIn}
+        />
+        <p>Password</p>
+        <input
+          type="text"
+          placeholder="Password"
+          name="password"
+          onChange={props.handleSignIn}
+        />
+        <input type="submit" value="Sign In" />
+      </form>
+    </div>
   );
 };
