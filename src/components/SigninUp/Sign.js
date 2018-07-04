@@ -34,7 +34,6 @@ const theSign = WrappedComponent => {
         .then(user => {
           console.log(user);
           this.setState({ user: user.user });
-          this.props.addUser(this.state.user);
         })
         .catch(err => console.log(err));
       e.preventDefault();
@@ -43,8 +42,12 @@ const theSign = WrappedComponent => {
     newUser = e => {
       newCreateUserWithEmailAndPassword(this.state.email, this.state.password)
         .then(user => {
+          console.log(user);
           this.setState({ user: user.user });
-          this.props.addUser(this.state.user);
+          this.props.addUser(
+            this.state.user.displayName,
+            this.state.user.email
+          );
         })
         .catch(error => {
           this.setState(byPropKey("error", error));
@@ -53,9 +56,8 @@ const theSign = WrappedComponent => {
       e.preventDefault();
     };
     render() {
-      console.log(this.props.user);
       const { email, password, user } = this.state;
-      // console.log(email);
+
       const otherProps = {
         email: email,
         password: password,

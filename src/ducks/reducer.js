@@ -1,13 +1,15 @@
+import axios from "axios";
+
 const ADD_USER = "ADD_USER";
 
 const initialState = {
   user: {}
 };
 
-export function addUser(user) {
+export function addUser(name, email) {
   return {
     type: ADD_USER,
-    payload: user
+    payload: axios.post("/api/user", { name, email })
   };
 }
 
@@ -16,7 +18,7 @@ export default function reducer(state = initialState, action) {
     case ADD_USER:
       return {
         ...state,
-        user: action.payload
+        user: action.payload.data
       };
     default:
       return state;
