@@ -1,0 +1,4 @@
+-- CREATE TABLE mealUser (
+-- id SERIAL PRIMARY KEY,
+-- name VARCHAR(200),
+-- email VARCHAR(200))
