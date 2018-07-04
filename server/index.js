@@ -25,7 +25,10 @@ const userRouter = express.Router();
 app.use("/api", restRouter);
 restRouter.use("/user", userRouter);
 
-userRouter.route("/").post(uc.createUser);
+userRouter
+  .route("/")
+  .get(uc.loginUser)
+  .post(uc.createUser);
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
