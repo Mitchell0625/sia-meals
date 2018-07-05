@@ -98,7 +98,7 @@ export const Form = props => {
         />
         <p>Password</p>
         <input
-          type="text"
+          type="password"
           placeholder="Password"
           name="password"
           onChange={props.handleSignIn}

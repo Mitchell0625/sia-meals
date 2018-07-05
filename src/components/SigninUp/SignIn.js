@@ -28,7 +28,6 @@ import theSign, { Form } from "./Sign";
 // )(SignIn);
 class SignIn extends Component {
   render() {
-    console.log(this.props);
     return (
       <div>
         <h2>Sign In now</h2>
