@@ -8,6 +8,7 @@ const port = 4000;
 
 //controllers
 const uc = require("./controllers/userController");
+const mc = require("./controllers/mealsController");
 
 const app = express();
 app.use(json());
@@ -21,14 +22,18 @@ massive(process.env.CONNECTION_STRING)
 //routers
 const restRouter = express.Router();
 const userRouter = express.Router();
+const mealsRouter = express.Router();
 
 app.use("/api", restRouter);
 restRouter.use("/user", userRouter);
+restRouter.use("/meals", mealsRouter);
 
 userRouter
   .route("/")
   .get(uc.loginUser)
   .post(uc.createUser);
+
+mealsRouter.route("/").get(mc.getMeals);
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
