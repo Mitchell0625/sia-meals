@@ -9,10 +9,14 @@ class Creates extends Component {
     };
   }
 
+  editMeal(id) {}
+
   render() {
     return (
       <div className="creates-page">
         <button>Update Menu</button>
+        {/* to view what customer sees
+        <button>View Meals</button> */}
       </div>
     );
   }

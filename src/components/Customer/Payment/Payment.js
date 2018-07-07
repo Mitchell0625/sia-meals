@@ -1,33 +1,30 @@
 import React, { Component } from "react";
 import { StripeCheckout } from "react-stripe-checkout";
-// import SignIn from "../../SigninUp/SignIn";
+
 import Modal from "../../SigninUp/Modal/Modal";
 
 class Payment extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      display: "none",
-      background: "background"
-    };
-    this.showModal = this.showModal.bind(this);
+  state = {
+    display: false,
+    background: "background"
+  };
+  componentDidMount() {
+    this.showModal();
   }
-
   showModal = () => {
-    this.setState({ display: "block" });
+    this.setState({ display: true });
+  };
+  closeModal = () => {
+    this.setState({ display: false });
   };
 
   render() {
     return (
-      <div className={this.state.background}>
+      <div className="payment-page">
         Payment Page
         {!this.props.user ? (
-          <div>
-            <button onClick={this.showModal}>Sign In</button>
-            <div className="modal" style={{ display: this.state.display }}>
-              <Modal />
-            </div>
+          <div className="modal">
+            <Modal display={this.state.display} close={this.closeModal} />
           </div>
         ) : (
           ""

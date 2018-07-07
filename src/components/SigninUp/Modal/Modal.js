@@ -2,16 +2,17 @@ import React, { Component } from "react";
 import SignIn from "../SignIn";
 import "./Modal.css";
 
-class Modal extends Component {
-  constructor(props) {
-    super(props);
+const Modal = ({ close, display }) => {
+  const showHide = display ? "modal display-block" : "modal display-none";
+  {
+    console.log(display);
   }
-  render() {
-    return (
-      <div className="modal-container">
-        <SignIn />
-      </div>
-    );
-  }
-}
+  return (
+    <div className={showHide}>
+      <button onClick={close}>&times;</button>
+      <SignIn />
+    </div>
+  );
+};
+
 export default Modal;
