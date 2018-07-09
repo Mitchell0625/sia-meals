@@ -36,6 +36,7 @@ class SignIn extends Component {
           email={this.props.email}
           password={this.props.password}
           handleSignIn={this.props.handleSignIn}
+          buttonText="Sign In"
         />
         <Link to="/signup">
           <p>Create an Account</p>

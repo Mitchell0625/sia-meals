@@ -9,7 +9,8 @@
   .header-page .title {
     font-family: "Josefin Sans", sans-serif;
     font-size: 36px;
-    line-height: 40px; }
+    line-height: 40px;
+    color: #712333; }
 
 .mobile-bars,
 .slide {

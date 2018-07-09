@@ -15,6 +15,7 @@ class SignUp extends Component {
           email={this.props.email}
           password={this.props.password}
           handleSignIn={this.props.handleSignIn}
+          buttonText="Sign Up"
         />
       </div>
     );

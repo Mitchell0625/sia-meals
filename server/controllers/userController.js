@@ -12,7 +12,10 @@ module.exports = {
     const db = req.app.get("db");
 
     db.loginUser([req.body.email])
-      .then(user => res.status(200).json(user))
+      .then(user => {
+        console.log(user);
+        res.status(200).json(user);
+      })
       .catch(err => console.log(err));
   }
 };

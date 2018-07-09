@@ -1,2 +1,2 @@
-SELECT * FROM mealsuser
+SELECT * FROM mealuser
 WHERE email = $1;

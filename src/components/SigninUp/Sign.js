@@ -35,9 +35,9 @@ const theSign = WrappedComponent => {
           this.setState({ user: person.user });
         })
         .then(() => {
-          console.log(this.state.user.email);
           this.props.loginUser(this.state.user.email);
         })
+        .then(() => this.props.history.push("/meals"))
         .catch(err => console.log(err));
       e.preventDefault();
     };
@@ -48,6 +48,7 @@ const theSign = WrappedComponent => {
           // this.setState({ user: user.user });
           this.props.addUser(person.user.displayName, person.user.email);
         })
+        .then(() => this.props.history.push("/meals"))
         .catch(error => {
           this.setState(byPropKey("error", error));
         });
@@ -103,7 +104,7 @@ export const Form = props => {
           name="password"
           onChange={props.handleSignIn}
         />
-        <input type="submit" value="Sign In" />
+        <input type="submit" value={props.buttonText} />
       </form>
     </div>
   );
