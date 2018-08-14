@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import {
-  userSignInWithEmailAndPassword,
-  newCreateUserWithEmailAndPassword
+  userSignInWithEmailAndPassword
 } from "../../firebase/auth";
 import { connect } from "react-redux";
-import { addUser, loginUser } from "../../ducks/reducer";
+import { loginUser } from "../../ducks/reducer";
 import "./Form.css";
 
 const byPropKey = (propertyName, value) => () => ({
@@ -24,10 +23,10 @@ const theSign = WrappedComponent => {
       this.newUser = this.newUser.bind(this);
     }
     handleSignIn = e => {
-      // e.preventDefault();
       this.setState({ [e.target.name]: e.target.value });
       console.log("hit");
     };
+
     signInUser = e => {
       console.log("hit");
       userSignInWithEmailAndPassword(this.state.email, this.state.password)
@@ -42,19 +41,6 @@ const theSign = WrappedComponent => {
       e.preventDefault();
     };
 
-    newUser = e => {
-      newCreateUserWithEmailAndPassword(this.state.email, this.state.password)
-        .then(person => {
-          // this.setState({ user: user.user });
-          this.props.addUser(person.user.displayName, person.user.email);
-        })
-        .then(() => this.props.history.push("/meals"))
-        .catch(error => {
-          this.setState(byPropKey("error", error));
-        });
-      // console.log(err));
-      e.preventDefault();
-    };
     render() {
       const { email, password, user } = this.state;
 
@@ -80,7 +66,7 @@ const theSign = WrappedComponent => {
   }
   return connect(
     mapStateToProps,
-    { addUser, loginUser }
+    { loginUser }
   )(Sign);
 };
 

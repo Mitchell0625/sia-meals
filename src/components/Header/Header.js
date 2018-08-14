@@ -16,9 +16,7 @@ const Header = props => {
       <nav className="navbar">
         <ul>
           <li>About</li>
-          <Link to="/meals">
-            <li>Meals</li>
-          </Link>
+          <li>Social</li>
           <li>Contact</li>
         </ul>
         {/* {admin && <i class="fas fa-user-circle" />} if user is admin */}
@@ -28,16 +26,13 @@ const Header = props => {
           <Link to="/login" className="button">
             Login
           </Link>
-          <Link to="/signup" className="button">
-            Register
-          </Link>
         </div>
       ) : (
-        ""
-      )}
+          ""
+        )}
       <ul className="slide">
         <li>About</li>
-        <li>Meals</li>
+        <li>Social</li>
         <li>Contact</li>
       </ul>
       {props.user && (
