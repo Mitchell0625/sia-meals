@@ -20,7 +20,6 @@ const theSign = WrappedComponent => {
       };
       this.handleSignIn = this.handleSignIn.bind(this);
       this.signInUser = this.signInUser.bind(this);
-      this.newUser = this.newUser.bind(this);
     }
     handleSignIn = e => {
       this.setState({ [e.target.name]: e.target.value });
@@ -49,7 +48,6 @@ const theSign = WrappedComponent => {
         password: password,
         handleSignIn: this.handleSignIn,
         signInUser: this.signInUser,
-        newUser: this.newUser
       };
       return (
         <div>

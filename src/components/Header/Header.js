@@ -1,6 +1,6 @@
-import React from "react";
-import "./Header.css";
-import { Link } from "react-router-dom";
+import React from 'react';
+import './Header.css';
+import { NavLink, Link } from 'react-router-dom';
 
 const Header = props => {
   return (
@@ -14,11 +14,16 @@ const Header = props => {
         <div className="bar bar3" />
       </div>
       <nav className="navbar">
-        <ul>
+        <NavLink to="/about">
           <li>About</li>
+        </NavLink>
+        <NavLink to="/social">
           <li>Social</li>
+        </NavLink>
+        <NavLink to="/contact">
           <li>Contact</li>
-        </ul>
+        </NavLink>
+
         {/* {admin && <i class="fas fa-user-circle" />} if user is admin */}
       </nav>
       {!props.user ? (
@@ -28,8 +33,8 @@ const Header = props => {
           </Link>
         </div>
       ) : (
-          ""
-        )}
+        ''
+      )}
       <ul className="slide">
         <li>About</li>
         <li>Social</li>
