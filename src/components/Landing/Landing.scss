@@ -1,6 +1,16 @@
-@import "../../utils.scss";
+@import '../../utils.scss';
 
 .landing-container {
   // @extend %page-content;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.landing__slider {
+  height: 75vh;
+  overflow-y: hidden;
+}
+
+.landing__slider__div {
+  display: flex;
+  overflow: scroll;
 }

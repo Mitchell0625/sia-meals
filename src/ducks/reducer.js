@@ -26,7 +26,6 @@ export function getImages(images) {
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case `${LOGIN_USER}_FULFILLED`:
-      console.log(action);
       return {
         ...state,
         user: action.payload.data
