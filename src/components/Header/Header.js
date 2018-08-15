@@ -14,15 +14,9 @@ const Header = props => {
         <div className="bar bar3" />
       </div>
       <nav className="navbar">
-        <NavLink to="/about">
-          <li>About</li>
-        </NavLink>
-        <NavLink to="/social">
-          <li>Social</li>
-        </NavLink>
-        <NavLink to="/contact">
-          <li>Contact</li>
-        </NavLink>
+        <NavLink to="/about">About</NavLink>
+        <NavLink to="/social">Social</NavLink>
+        <NavLink to="/contact">Contact</NavLink>
 
         {/* {admin && <i class="fas fa-user-circle" />} if user is admin */}
       </nav>

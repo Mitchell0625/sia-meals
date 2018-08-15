@@ -21,7 +21,7 @@ class EditImageSlider extends Component {
   };
 
   render() {
-    console.log(this.state);
+    // console.log(this.state);
     return (
       <div className="editimage">
         <p>Change Image 1</p>
