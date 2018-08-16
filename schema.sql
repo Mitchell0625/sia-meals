@@ -13,10 +13,17 @@ VALUES('https://images.unsplash.com/photo-1453831362806-3d5577f014a4?ixlib=rb-0.
 
 
 CREATE TABLE sliderImages (
+    id SERIAL PRIMARY KEY, 
     name VARCHAR(100),
-    sliderMealImages REFERENCES mealImages(id)
-)
+    sliderMealImages INT REFERENCES mealImages(id));
 
-INSERT INTO sliderImages (name)
-VALUES ('image1'), ('image2'), ('image3') 
+INSERT INTO sliderImages (name, sliderMealImages)
+VALUES ('image1',1), ('image2',2), ('image3',3) 
+
+UPDATE sliderImages
+SET sliderMealImages = 1
+WHERE name = 'image1';
+
+SELECT s.name, m.id, m.url from sliderImages s
+JOIN mealImages m ON s.sliderMealImages = m.id;
 

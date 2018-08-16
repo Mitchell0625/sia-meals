@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getImages } from '../../ducks/reducer';
+import { getSliderImages } from '../../ducks/reducer';
 import LandSlide from './LandSlide/LandSlide';
 import './Landing.css';
 
 class Landing extends Component {
   componentDidMount = () => {
-    this.props.getImages();
+    this.props.getSliderImages();
   };
+
+  nextImage = id => {};
   render() {
-    let slider = this.props.images.map(e => {
-      return <LandSlide key={e.id} url={e.url} />;
+    let slider = this.props.sliderImages.map(e => {
+      return <LandSlide key={e.id} name={e.name} url={e.url} />;
     });
     return (
       <div className="landing-container">
@@ -29,5 +31,5 @@ function mapStateToProps(state) {
 }
 export default connect(
   mapStateToProps,
-  { getImages }
+  { getSliderImages }
 )(Landing);

@@ -31,6 +31,7 @@ userRouter.route('/').get(uc.loginUser);
 
 //editing
 restRouter.get('/getImages', ec.getImages);
+restRouter.get('/getSliderImages', ec.getSliderImages);
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });

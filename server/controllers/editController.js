@@ -5,5 +5,12 @@ module.exports = {
     db.getImages()
       .then(images => res.status(200).json(images))
       .catch(err => console.log(err));
+  },
+  getSliderImages: (req, res) => {
+    const db = req.app.get('db');
+
+    db.getSliderImages()
+      .then(images => res.status(200).json(images))
+      .catch(err => console.log(err));
   }
 };

@@ -5,7 +5,7 @@ const propTypes = {
   url: PropTypes.string.isRequired
 };
 
-const LandSlide = ({ url }) => {
+const LandSlide = ({ id, url, sliderMealImage }) => {
   return (
     <div className="landslide">
       <img src={url} />
