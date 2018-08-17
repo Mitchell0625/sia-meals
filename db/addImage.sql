@@ -1,0 +1,3 @@
+INSERT INTO mealImages (url)
+VALUES ($1)
+RETURNING *;
