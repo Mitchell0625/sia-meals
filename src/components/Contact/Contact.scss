@@ -13,6 +13,9 @@
   @extend %flexing;
 
   justify-content: space-around;
+  border: 7px solid white;
+  margin: 20px 80px;
+  padding: 20px 0px;
 
   p {
     font-size: 14px;
@@ -20,4 +23,8 @@
 }
 
 .contact__message {
+  input[type='text'] {
+    height: 150px;
+    width: 225px;
+  }
 }

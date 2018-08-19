@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import Dropzone from 'react-dropzone';
+import AllImages from './AllImages';
 
 class EditImageSlider extends Component {
-  state = {
-    image1: '',
-    image2: '',
-    image3: '',
-    addedImage: ''
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      image1: '',
+      image2: '',
+      image3: '',
+      addedImage: ''
+    };
+  }
 
   changeImage1 = val => {
     this.setState({ image1: val });
@@ -25,7 +30,10 @@ class EditImageSlider extends Component {
     this.setState({ addedImage: image.preview });
   }
   render() {
-    console.log(this.state);
+    console.log(this.props);
+    const allImages = this.props.aImages.map(image => {
+      return <AllImages key={image.id} url={image.url} />;
+    });
     return (
       <div className="editimage">
         <p>Change Image 1</p>
@@ -40,6 +48,7 @@ class EditImageSlider extends Component {
         <input onChange={e => this.changeImage2(e.target.value)} />
         <p>Change Image 3</p>
         <input onChange={e => this.changeImage3(e.target.value)} />
+        {allImages}
       </div>
     );
   }

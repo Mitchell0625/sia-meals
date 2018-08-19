@@ -9,8 +9,15 @@
     font-size: 30px; }
 
 .contact__form {
-  justify-content: space-around; }
+  justify-content: space-around;
+  border: 7px solid white;
+  margin: 20px 80px;
+  padding: 20px 0px; }
   .contact__form p {
     font-size: 14px; }
+
+.contact__message input[type='text'] {
+  height: 150px;
+  width: 225px; }
 
 /*# sourceMappingURL=Contact.css.map */

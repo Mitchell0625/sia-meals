@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
 import EditImageSlider from './EditImageSlider/EditImageSlider';
 import EditAbout from './EditAbout/EditAbout';
+import { getImages } from '../../ducks/reducer';
 
 class Editor extends Component {
   state = {
@@ -10,25 +12,29 @@ class Editor extends Component {
   };
 
   componentDidMount = () => {
-    axios
-      .get('/api/getImages')
-      .then(img => {
-        this.setState({ images: img.data });
-      })
-      .catch(error => this.setState({ err: error }));
+    this.props.getImages();
   };
 
   render() {
     console.log(this.state);
+
     return (
       <div className="editor">
         <section>
-          <EditImageSlider />
+          <EditImageSlider aImages={this.props.allImages} />
         </section>
+
         <section>{/* <EditAbout /> */}</section>
       </div>
     );
   }
 }
 
-export default Editor;
+function mapStateToProps(state) {
+  return state;
+}
+
+export default connect(
+  mapStateToProps,
+  { getImages }
+)(Editor);
