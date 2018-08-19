@@ -5,7 +5,8 @@ class EditImageSlider extends Component {
   state = {
     image1: '',
     image2: '',
-    image3: ''
+    image3: '',
+    addedImage: ''
   };
 
   changeImage1 = val => {
@@ -20,12 +21,18 @@ class EditImageSlider extends Component {
     this.setState({ image3: val });
   };
 
+  addImage(image) {
+    this.setState({ addedImage: image.preview });
+  }
   render() {
-    // console.log(this.state);
+    console.log(this.state);
     return (
       <div className="editimage">
         <p>Change Image 1</p>
-        <Dropzone>
+        <Dropzone
+          accept="image/*"
+          onDrop={addedImage => this.setState({ addedImage })}
+        >
           <p>Add file</p>
         </Dropzone>
         <input onChange={e => this.changeImage1(e.target.value)} />

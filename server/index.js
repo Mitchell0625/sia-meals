@@ -1,5 +1,3 @@
-import { read } from 'fs';
-
 require('dotenv').config();
 const express = require('express');
 const { json } = require('body-parser');

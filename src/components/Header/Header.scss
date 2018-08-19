@@ -1,10 +1,11 @@
-@import "../../utils.scss";
+@import '../../utils.scss';
 
 .header-page {
   width: 100vw;
   padding: 20px;
   @extend %flexing;
   justify-content: space-between;
+  background-color: white;
   .title {
     font-family: $heading-font;
     font-size: 36px;

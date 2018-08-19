@@ -1,12 +1,14 @@
 .landing-container {
   font-family: 'Open Sans', sans-serif; }
 
-.landing__slider {
-  height: 75vh;
-  overflow-y: hidden; }
-
 .landing__slider__div {
   display: flex;
-  overflow: scroll; }
+  overflow-x: scroll;
+  overflow-y: hidden; }
+  .landing__slider__div img {
+    height: 500px; }
+
+.landing-container section {
+  height: 33%; }
 
 /*# sourceMappingURL=Landing.css.map */

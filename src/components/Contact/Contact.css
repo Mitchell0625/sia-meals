@@ -1,0 +1,16 @@
+.contact__form {
+  display: flex;
+  align-items: center; }
+
+.contact {
+  height: 40vh;
+  background-color: orange; }
+  .contact h2 {
+    font-size: 30px; }
+
+.contact__form {
+  justify-content: space-around; }
+  .contact__form p {
+    font-size: 14px; }
+
+/*# sourceMappingURL=Contact.css.map */

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getSliderImages } from '../../ducks/reducer';
 import LandSlide from './LandSlide/LandSlide';
+import Contact from '../Contact/Contact';
 import './Landing.css';
 
 class Landing extends Component {
@@ -20,7 +21,9 @@ class Landing extends Component {
           <div className="landing__slider__div">{slider}</div>
         </section>
         <section>About</section>
-        <section>Contact</section>
+        <section>
+          <Contact />
+        </section>
       </div>
     );
   }

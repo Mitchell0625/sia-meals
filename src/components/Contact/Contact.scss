@@ -1,0 +1,23 @@
+@import '../../utils.scss';
+
+.contact {
+  height: 40vh;
+  background-color: orange;
+
+  h2 {
+    font-size: 30px;
+  }
+}
+
+.contact__form {
+  @extend %flexing;
+
+  justify-content: space-around;
+
+  p {
+    font-size: 14px;
+  }
+}
+
+.contact__message {
+}

@@ -6,11 +6,18 @@
 }
 
 .landing__slider {
-  height: 75vh;
-  overflow-y: hidden;
 }
 
 .landing__slider__div {
   display: flex;
-  overflow: scroll;
+  overflow-x: scroll;
+  overflow-y: hidden;
+
+  img {
+    height: 500px;
+  }
+}
+
+.landing-container section {
+  height: 33%;
 }
