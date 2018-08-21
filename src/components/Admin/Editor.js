@@ -3,7 +3,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import EditImageSlider from './EditImageSlider/EditImageSlider';
 import EditAbout from './EditAbout/EditAbout';
-import { getImages } from '../../ducks/reducer';
+import { getImages, addImage } from '../../ducks/reducer';
 
 class Editor extends Component {
   state = {
@@ -15,16 +15,26 @@ class Editor extends Component {
     this.props.getImages();
   };
 
+  saveImage = image => {
+    this.props.addImage(image);
+  };
   render() {
     console.log(this.state);
 
     return (
       <div className="editor">
         <section>
-          <EditImageSlider aImages={this.props.allImages} />
+          <h2>Edit Slider</h2>
+          <EditImageSlider
+            save={this.saveImage}
+            aImages={this.props.allImages}
+          />
         </section>
 
-        <section>{/* <EditAbout /> */}</section>
+        <section>
+          <h2>Edit About section</h2>
+          {/* <EditAbout /> */}
+        </section>
       </div>
     );
   }
@@ -36,5 +46,5 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps,
-  { getImages }
+  { getImages, addImage }
 )(Editor);

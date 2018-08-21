@@ -3,6 +3,7 @@ import axios from 'axios';
 const LOGIN_USER = 'LOGIN_USER';
 const GET_IMAGES = 'GET_IMAGES';
 const GET_SLIDER_IMAGES = 'GET_SLIDER_IMAGES';
+const ADD_IMAGE = 'ADD_IMAGE';
 
 const initialState = {
   user: {},
@@ -31,6 +32,13 @@ export function getSliderImages() {
     payload: axios.get('/api/getSliderImages')
   };
 }
+
+export function addImage(image) {
+  return {
+    type: ADD_IMAGE,
+    payload: axios.post('/api/addImage', { image })
+  };
+}
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case `${LOGIN_USER}_FULFILLED`:
@@ -49,6 +57,11 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         sliderImages: action.payload.data
+      };
+    case `${ADD_IMAGE}_FULFILLED`:
+      return {
+        ...state,
+        allImages: [...state.allImages, action.payload.data]
       };
 
     default:

@@ -9,15 +9,20 @@
     font-size: 30px; }
 
 .contact__form {
-  justify-content: space-around;
+  justify-content: space-between;
   border: 7px solid white;
   margin: 20px 80px;
-  padding: 20px 0px; }
+  padding: 20px; }
   .contact__form p {
     font-size: 14px; }
 
-.contact__message input[type='text'] {
-  height: 150px;
-  width: 225px; }
+.contact__message {
+  flex-grow: 2; }
+  .contact__message input[type='text'] {
+    height: 150px;
+    width: 100%; }
+
+.contact__small {
+  flex-grow: 1; }
 
 /*# sourceMappingURL=Contact.css.map */

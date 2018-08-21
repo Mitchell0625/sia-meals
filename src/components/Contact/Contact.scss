@@ -12,10 +12,10 @@
 .contact__form {
   @extend %flexing;
 
-  justify-content: space-around;
+  justify-content: space-between;
   border: 7px solid white;
   margin: 20px 80px;
-  padding: 20px 0px;
+  padding: 20px;
 
   p {
     font-size: 14px;
@@ -23,8 +23,14 @@
 }
 
 .contact__message {
+  flex-grow: 2;
+
   input[type='text'] {
     height: 150px;
-    width: 225px;
+    width: 100%;
   }
+}
+
+.contact__small {
+  flex-grow: 1;
 }

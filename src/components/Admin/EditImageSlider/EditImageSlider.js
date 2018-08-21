@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import Dropzone from 'react-dropzone';
+import PropTypes from 'prop-types';
 import AllImages from './AllImages';
 
+const propTypes = {
+  aImages: PropTypes.array.isRequired,
+  save: PropTypes.func.isRequired
+};
 class EditImageSlider extends Component {
   constructor(props) {
     super(props);
@@ -10,7 +15,7 @@ class EditImageSlider extends Component {
       image1: '',
       image2: '',
       image3: '',
-      addedImage: ''
+      addedImage: []
     };
   }
 
@@ -26,23 +31,31 @@ class EditImageSlider extends Component {
     this.setState({ image3: val });
   };
 
-  addImage(image) {
-    this.setState({ addedImage: image.preview });
-  }
+  added = image => {
+    let newA = this.state.addedImage.slice();
+    newA.push(...image);
+    this.setState({ addedImage: newA });
+  };
+
   render() {
-    console.log(this.props);
+    console.log(this.state);
     const allImages = this.props.aImages.map(image => {
       return <AllImages key={image.id} url={image.url} />;
     });
     return (
       <div className="editimage">
-        <p>Change Image 1</p>
         <Dropzone
           accept="image/*"
-          onDrop={addedImage => this.setState({ addedImage })}
+          onDrop={image => {
+            this.added(image);
+          }}
         >
           <p>Add file</p>
         </Dropzone>
+        {this.state.addedImage.length >= 1 && (
+          <img src={this.state.addedImage[0].preview} />
+        )}
+        <p>Change Image 1</p>
         <input onChange={e => this.changeImage1(e.target.value)} />
         <p>Change Image 2</p>
         <input onChange={e => this.changeImage2(e.target.value)} />
