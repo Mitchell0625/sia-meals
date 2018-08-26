@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import EditImageSlider from './EditImageSlider/EditImageSlider';
-import EditAbout from './EditAbout/EditAbout';
-import { getImages, addImage } from '../../ducks/reducer';
+import EditImageSlider from '../EditImageSlider/EditImageSlider';
+import EditAbout from '../EditAbout/EditAbout';
+import { getImages, addImage } from '../../../ducks/reducer';
+import './Editor.css';
 
 class Editor extends Component {
   state = {
@@ -19,11 +20,10 @@ class Editor extends Component {
     this.props.addImage(image);
   };
   render() {
-    console.log(this.state);
-
     return (
       <div className="editor">
-        <section>
+        <h1>Editor</h1>
+        <section className="editor__section">
           <h2>Edit Slider</h2>
           <EditImageSlider
             save={this.saveImage}
@@ -31,7 +31,7 @@ class Editor extends Component {
           />
         </section>
 
-        <section>
+        <section className="editor__section">
           <h2>Edit About section</h2>
           {/* <EditAbout /> */}
         </section>

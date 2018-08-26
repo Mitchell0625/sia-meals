@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Dropzone from 'react-dropzone';
 import PropTypes from 'prop-types';
 import AllImages from './AllImages';
+import AddImage from '../AddImage';
 
 const propTypes = {
   aImages: PropTypes.array.isRequired,
@@ -42,6 +43,13 @@ class EditImageSlider extends Component {
     const allImages = this.props.aImages.map(image => {
       return <AllImages key={image.id} url={image.url} />;
     });
+
+    let showAdded = [];
+    if (this.state.addedImage.length >= 1) {
+      showAdded = this.state.addedImage.map(e => {
+        return <AddImage key={e.name} image={e.preview} />;
+      });
+    }
     return (
       <div className="editimage">
         <Dropzone
@@ -52,9 +60,7 @@ class EditImageSlider extends Component {
         >
           <p>Add file</p>
         </Dropzone>
-        {this.state.addedImage.length >= 1 && (
-          <img src={this.state.addedImage[0].preview} />
-        )}
+        {showAdded}
         <p>Change Image 1</p>
         <input onChange={e => this.changeImage1(e.target.value)} />
         <p>Change Image 2</p>

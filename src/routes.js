@@ -5,7 +5,7 @@ import SignIn from './components/SigninUp/SignIn';
 import About from './components/About/About';
 import Social from './components/Social/Social';
 import Contact from './components/Contact/Contact';
-import Editor from './components/Admin/Editor';
+import Editor from './components/Admin/Editor/Editor';
 
 export default (
   <Switch>
