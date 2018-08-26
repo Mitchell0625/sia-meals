@@ -28,5 +28,20 @@ module.exports = {
     db.addImage([url])
       .then(image => res.status(200).json(image))
       .catch(err => console.log(err));
+  },
+  updateAbout: (req, res) => {
+    const db = req.app.get('db');
+    const { text } = req.body;
+
+    db.updateAbout([text, req.params.id])
+      .then(newText => res.status(200).json(newText))
+      .catch(err => console.log(err));
+  },
+  getAbout: (req, res) => {
+    const db = req.app.get('db');
+
+    db.getAbout()
+      .then(about => res.status(200).json(about))
+      .catch(err => console.log(err));
   }
 };

@@ -14,6 +14,7 @@ class Editor extends Component {
 
   componentDidMount = () => {
     this.props.getImages();
+    // this.props.getAbout();
   };
 
   saveImage = image => {

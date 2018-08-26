@@ -32,8 +32,10 @@ userRouter.route('/').get(uc.loginUser);
 //editing
 restRouter.get('/getImages', ec.getImages);
 restRouter.get('/getSliderImages', ec.getSliderImages);
+restRouter.get('/getAbout', ec.getAbout);
 restRouter.put('/updateSliderImage', ec.updateSliderImage);
 restRouter.post('/addImage', ec.addImage);
+restRouter.post('/updateAbout', ec.updateAbout);
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);

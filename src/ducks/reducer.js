@@ -4,11 +4,13 @@ const LOGIN_USER = 'LOGIN_USER';
 const GET_IMAGES = 'GET_IMAGES';
 const GET_SLIDER_IMAGES = 'GET_SLIDER_IMAGES';
 const ADD_IMAGE = 'ADD_IMAGE';
+const GET_ABOUT = 'GET_ABOUT';
 
 const initialState = {
   user: {},
   allImages: [],
-  sliderImages: []
+  sliderImages: [],
+  about: []
 };
 
 //admin login
@@ -39,6 +41,13 @@ export function addImage(image) {
     payload: axios.post('/api/addImage', { image })
   };
 }
+
+export function getAbout() {
+  return {
+    type: GET_ABOUT,
+    payload: axios.get('/api/getAbout')
+  };
+}
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case `${LOGIN_USER}_FULFILLED`:
@@ -62,6 +71,11 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         allImages: [...state.allImages, action.payload.data]
+      };
+    case `${GET_ABOUT}_FULFILLED`:
+      return {
+        ...state,
+        about: action.payload.data
       };
 
     default:
