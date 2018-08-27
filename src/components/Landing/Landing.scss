@@ -2,10 +2,12 @@
 
 .landing-container {
   // @extend %page-content;
+  height: 100vh;
   font-family: 'Open Sans', sans-serif;
 }
 
 .landing__slider {
+  overflow: hidden;
 }
 
 .landing__slider__div {
@@ -13,23 +15,16 @@
   overflow-x: auto;
   overflow-y: hidden;
   width: 80vw;
-  // height: 400px;
+  height: 70vh;
   margin: auto;
 }
 
 .landing-container section {
-  height: 33%;
+  // height: 33%;
 }
 
 @media (max-width: 767px) {
   .landing__slider__div {
     width: 100vw;
-    height: 70vh;
-    -webkit-scroll-snap-points-x: repeat(300px);
-    -ms-scroll-snap-points-x: repeat(300px);
-    scroll-snap-points-x: repeat(300px);
-    -webkit-scroll-snap-type: mandatory;
-    -ms-scroll-snap-type: mandatory;
-    scroll-snap-type: mandatory;
   }
 }

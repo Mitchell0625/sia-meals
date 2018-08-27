@@ -15,7 +15,7 @@
 }
 
 .mobile-bars,
-.slide {
+.mobile-nav {
   display: none;
 }
 nav {
@@ -31,6 +31,9 @@ nav {
 }
 
 @media (max-width: 500px) {
+  .mobile-nav {
+    display: block;
+  }
   .mobile-bars {
     display: block;
     .bar {
@@ -40,7 +43,12 @@ nav {
       margin: 5px;
     }
   }
-  nav {
+
+  .navbar {
     display: none;
+  }
+
+  .mobile-nav-menu-item {
+    display: block;
   }
 }

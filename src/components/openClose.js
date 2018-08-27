@@ -1,5 +1,5 @@
 //render prop for open close
-import React from "react";
+import React from 'react';
 
 class OpenClose extends React.Component {
   constructor(props) {
@@ -18,9 +18,8 @@ class OpenClose extends React.Component {
   };
 
   render() {
-    const { toggle } = this.state;
-    const { closeIt } = this;
-    return <div>{this.props.render(toggle, closeIt)}</div>;
+    console.log(this.state);
+    return <div onClick={this.closeIt}>{this.props.render(this.state)}</div>;
   }
 }
 export default OpenClose;

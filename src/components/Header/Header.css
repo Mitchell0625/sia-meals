@@ -14,7 +14,7 @@
     color: #712333; }
 
 .mobile-bars,
-.slide {
+.mobile-nav {
   display: none; }
 
 nav ul {
@@ -25,6 +25,9 @@ nav a {
   text-decoration: none; }
 
 @media (max-width: 500px) {
+  .mobile-nav {
+    display: block; }
+
   .mobile-bars {
     display: block; }
     .mobile-bars .bar {
@@ -33,7 +36,10 @@ nav a {
       height: 3px;
       margin: 5px; }
 
-  nav {
-    display: none; } }
+  .navbar {
+    display: none; }
+
+  .mobile-nav-menu-item {
+    display: block; } }
 
 /*# sourceMappingURL=Header.css.map */

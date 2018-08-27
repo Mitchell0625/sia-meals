@@ -1,4 +1,5 @@
 import React from 'react';
+import OpenClose from '../openClose';
 import './Header.css';
 import { NavLink, Link } from 'react-router-dom';
 
@@ -8,11 +9,7 @@ const Header = props => {
       <Link to="/">
         <div className="title">SuddenlySia</div>
       </Link>
-      <div className="mobile-bars">
-        <div className="bar bar1" />
-        <div className="bar bar2" />
-        <div className="bar bar3" />
-      </div>
+
       <nav className="navbar">
         <NavLink to="/about">About</NavLink>
         <NavLink to="/social">Social</NavLink>
@@ -20,8 +17,9 @@ const Header = props => {
 
         {/* {admin && <i class="fas fa-user-circle" />} if user is admin */}
       </nav>
+
       {!props.user ? (
-        <div>
+        <div className="navbar">
           <Link to="/login" className="button">
             Login
           </Link>
@@ -29,14 +27,41 @@ const Header = props => {
       ) : (
         ''
       )}
-      <ul className="slide">
-        <li>About</li>
-        <li>Social</li>
-        <li>Contact</li>
-      </ul>
       {props.user && (
         <button onClick={() => props.userSignOut()}> Leave</button>
       )}
+      <div className="mobile-nav">
+        <OpenClose
+          render={({ toggle }) => (
+            <div className="mobile-nav-bars">
+              <div className="mobile-bars" onClick={this.closeIt}>
+                <div className="bar bar1" />
+                <div className="bar bar2" />
+                <div className="bar bar3" />
+              </div>
+
+              {toggle && (
+                <nav className="mobile-nav-menu">
+                  <NavLink className="mobile-nav-menu-item" to="/about">
+                    About
+                  </NavLink>
+                  <NavLink className="mobile-nav-menu-item" to="/social">
+                    Social
+                  </NavLink>
+                  <NavLink className="mobile-nav-menu-item" to="/contact">
+                    Contact
+                  </NavLink>
+                  <NavLink className="mobile-nav-menu-item" to="/login">
+                    Login
+                  </NavLink>
+
+                  {/* {admin && <i class="fas fa-user-circle" />} if user is admin */}
+                </nav>
+              )}
+            </div>
+          )}
+        />
+      </div>
     </div>
   );
 };
