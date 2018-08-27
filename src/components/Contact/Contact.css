@@ -25,4 +25,12 @@
 .contact__small {
   flex-grow: 1; }
 
+@media (max-width: 767px) {
+  .contact {
+    height: 100%; }
+
+  .contact__form {
+    flex-direction: column;
+    margin: 20px 40px; } }
+
 /*# sourceMappingURL=Contact.css.map */

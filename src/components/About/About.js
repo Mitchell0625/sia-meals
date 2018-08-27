@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './About.css';
 
 const propTypes = {
-  id: PropTypes.number.isRequired,
   text: PropTypes.string.isRequired
 };
 
