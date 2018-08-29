@@ -1,0 +1,19 @@
+.editor {
+  display: flex;
+}
+
+.editor__switch {
+  flex-grow: 1;
+}
+
+.view__button {
+  display: block;
+  margin: 20px auto;
+  padding: 40px 80px;
+  border-radius: 5px;
+}
+
+.editor__switch__h1 {
+  font-size: 30px;
+  line-height: 50px;
+}

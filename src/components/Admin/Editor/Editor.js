@@ -29,13 +29,20 @@ class Editor extends Component {
     this.props.addImage(image);
   };
   render() {
-    console.log(this.state.show);
     let view = (
       <div>
-        <button onClick={() => this.showComponent('image')}>
+        <button
+          className="view__button"
+          value="image"
+          onClick={e => this.showComponent(e.target.value)}
+        >
           Image Slider
         </button>
-        <button onClick={() => this.showComponent('about')}>
+        <button
+          className="view__button"
+          value="about"
+          onClick={e => this.showComponent(e.target.value)}
+        >
           About Section
         </button>
       </div>
@@ -54,9 +61,13 @@ class Editor extends Component {
     }
     return (
       <div className="editor">
-        <Sidebar switchView={this.showComponent} />
-        <div>
-          <h1>What would you like to change?</h1>
+        {this.state.show === 'image' || this.state.show === 'about' ? (
+          <Sidebar switchView={this.showComponent} />
+        ) : (
+          ''
+        )}
+        <div className="editor__switch">
+          <h1 className="editor__switch__h1">What would you like to change?</h1>
           {view}
         </div>
       </div>
