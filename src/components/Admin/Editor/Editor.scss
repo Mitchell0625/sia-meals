@@ -1,5 +1,6 @@
 .editor {
   display: flex;
+  height: 100%;
 }
 
 .editor__switch {
@@ -11,6 +12,8 @@
   margin: 20px auto;
   padding: 40px 80px;
   border-radius: 5px;
+  background-color: maroon;
+  color: white;
 }
 
 .editor__switch__h1 {

@@ -5,6 +5,7 @@ const GET_IMAGES = 'GET_IMAGES';
 const GET_SLIDER_IMAGES = 'GET_SLIDER_IMAGES';
 const ADD_IMAGE = 'ADD_IMAGE';
 const GET_ABOUT = 'GET_ABOUT';
+const UPDATE_ABOUT = 'UPDATE_ABOUT';
 
 const initialState = {
   user: {},
@@ -46,6 +47,13 @@ export function getAbout() {
   return {
     type: GET_ABOUT,
     payload: axios.get('/api/getAbout')
+  };
+}
+
+export function updateAbout(text, id) {
+  return {
+    type: UPDATE_ABOUT,
+    payload: axios.put(`/api/updateAbout/${id}`)
   };
 }
 export default function reducer(state = initialState, action) {

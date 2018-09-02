@@ -35,7 +35,7 @@ restRouter.get('/getSliderImages', ec.getSliderImages);
 restRouter.get('/getAbout', ec.getAbout);
 restRouter.put('/updateSliderImage', ec.updateSliderImage);
 restRouter.post('/addImage', ec.addImage);
-restRouter.post('/updateAbout', ec.updateAbout);
+restRouter.put(`/updateAbout/:id`, ec.updateAbout);
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);

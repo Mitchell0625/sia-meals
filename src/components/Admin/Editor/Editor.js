@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import EditImageSlider from '../EditImageSlider/EditImageSlider';
 import EditAbout from '../EditAbout/EditAbout';
 import Sidebar from '../Sidebar/Sidebar';
-import { getImages, addImage } from '../../../ducks/reducer';
+import { getAbout, getImages, addImage } from '../../../ducks/reducer';
 import './Editor.css';
 
 class Editor extends Component {
@@ -16,7 +16,7 @@ class Editor extends Component {
 
   componentDidMount = () => {
     this.props.getImages();
-    // this.props.getAbout();
+    this.props.getAbout();
   };
 
   showComponent = page => {
@@ -59,6 +59,16 @@ class Editor extends Component {
         </section>
       );
     }
+
+    if (this.state.show == 'about') {
+      view = (
+        <section className="editor__section">
+          <h2>Edit About</h2>
+          <EditAbout currAbout={this.props.about} />
+        </section>
+      );
+    }
+
     return (
       <div className="editor">
         {this.state.show === 'image' || this.state.show === 'about' ? (
@@ -81,5 +91,5 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps,
-  { getImages, addImage }
+  { getAbout, getImages, addImage }
 )(Editor);

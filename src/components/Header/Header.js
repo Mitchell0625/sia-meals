@@ -11,7 +11,6 @@ const Header = props => {
       </Link>
 
       <nav className="navbar">
-        <NavLink to="/about">About</NavLink>
         <NavLink to="/social">Social</NavLink>
         <NavLink to="/contact">Contact</NavLink>
 
@@ -42,9 +41,6 @@ const Header = props => {
 
               {toggle && (
                 <nav className="mobile-nav-menu">
-                  <NavLink className="mobile-nav-menu-item" to="/about">
-                    About
-                  </NavLink>
                   <NavLink className="mobile-nav-menu-item" to="/social">
                     Social
                   </NavLink>

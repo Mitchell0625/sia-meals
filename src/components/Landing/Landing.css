@@ -9,9 +9,8 @@
   display: flex;
   overflow-x: auto;
   overflow-y: hidden;
-  width: 80vw;
   height: 70vh;
-  margin: auto; }
+  width: 100%; }
 
 @media (max-width: 767px) {
   .landing__slider__div {

@@ -67,7 +67,7 @@ class EditImageSlider extends Component {
         <input onChange={e => this.changeImage2(e.target.value)} />
         <p>Change Image 3</p>
         <input onChange={e => this.changeImage3(e.target.value)} />
-        {allImages}
+        <div className="editimage_allImages">{allImages}</div>
       </div>
     );
   }
