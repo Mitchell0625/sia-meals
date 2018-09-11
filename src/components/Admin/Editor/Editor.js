@@ -4,7 +4,12 @@ import { connect } from 'react-redux';
 import EditImageSlider from '../EditImageSlider/EditImageSlider';
 import EditAbout from '../EditAbout/EditAbout';
 import Sidebar from '../Sidebar/Sidebar';
-import { getAbout, getImages, addImage } from '../../../ducks/reducer';
+import {
+  getAbout,
+  getImages,
+  addImage,
+  updateAbout
+} from '../../../ducks/reducer';
 import './Editor.css';
 
 class Editor extends Component {
@@ -29,6 +34,7 @@ class Editor extends Component {
     this.props.addImage(image);
   };
   render() {
+    console.log(this.props.user);
     let view = (
       <div>
         <button
@@ -52,10 +58,12 @@ class Editor extends Component {
       view = (
         <section className="editor__section">
           <h2>Edit Slider</h2>
-          <EditImageSlider
-            save={this.saveImage}
-            aImages={this.props.allImages}
-          />
+          <div className="editor_section_div">
+            <EditImageSlider
+              save={this.saveImage}
+              aImages={this.props.allImages}
+            />
+          </div>
         </section>
       );
     }
@@ -64,7 +72,12 @@ class Editor extends Component {
       view = (
         <section className="editor__section">
           <h2>Edit About</h2>
-          <EditAbout currAbout={this.props.about} />
+          <div className="editor_section_div">
+            <EditAbout
+              updateAbout={this.props.updateAbout}
+              currAbout={this.props.about}
+            />
+          </div>
         </section>
       );
     }
@@ -91,5 +104,5 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps,
-  { getAbout, getImages, addImage }
+  { getAbout, getImages, addImage, updateAbout }
 )(Editor);

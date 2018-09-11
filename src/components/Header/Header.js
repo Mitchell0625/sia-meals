@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { userSignOut } from '../../ducks/reducer';
 import OpenClose from '../openClose';
 import './Header.css';
 import { NavLink, Link } from 'react-router-dom';
@@ -17,7 +19,7 @@ const Header = props => {
         {/* {admin && <i class="fas fa-user-circle" />} if user is admin */}
       </nav>
 
-      {!props.user ? (
+      {Object.keys(props.user).length < 1 ? (
         <div className="navbar">
           <Link to="/login" className="button">
             Login
@@ -26,8 +28,10 @@ const Header = props => {
       ) : (
         ''
       )}
-      {props.user && (
-        <button onClick={() => props.userSignOut()}> Leave</button>
+      {Object.keys(props.user).length > 1 && (
+        <Link to="/">
+          <button onClick={() => props.userSignOut()}> Leave</button>
+        </Link>
       )}
       <div className="mobile-nav">
         <OpenClose
@@ -62,4 +66,11 @@ const Header = props => {
   );
 };
 
-export default Header;
+function mapStateToProps(state) {
+  const { user } = state;
+  return { user };
+}
+export default connect(
+  mapStateToProps,
+  { userSignOut }
+)(Header);

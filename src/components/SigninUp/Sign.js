@@ -7,6 +7,7 @@ import './Form.css';
 const byPropKey = (propertyName, value) => () => ({
   [propertyName]: value
 });
+
 const theSign = WrappedComponent => {
   class Sign extends Component {
     constructor(props) {
@@ -21,13 +22,12 @@ const theSign = WrappedComponent => {
     }
     handleSignIn = e => {
       this.setState({ [e.target.name]: e.target.value });
-      console.log('hit');
     };
 
     signInUser = e => {
-      console.log('hit');
       userSignInWithEmailAndPassword(this.state.email, this.state.password)
         .then(person => {
+          console.log(person);
           this.setState({ user: person.user });
         })
         .then(() => {

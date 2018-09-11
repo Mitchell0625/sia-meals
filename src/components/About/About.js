@@ -9,7 +9,7 @@ const propTypes = {
 const About = ({ text }) => {
   return (
     <div className="about">
-      <p>{text}</p>
+      <p data-cy-text>{text}</p>
     </div>
   );
 };

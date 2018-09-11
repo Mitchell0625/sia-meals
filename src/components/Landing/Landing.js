@@ -14,6 +14,7 @@ class Landing extends Component {
 
   nextImage = id => {};
   render() {
+    console.log(this.props.user);
     let slider = this.props.sliderImages.map(e => {
       return <LandSlide key={e.id} name={e.name} url={e.url} />;
     });
@@ -21,6 +22,7 @@ class Landing extends Component {
     const about = this.props.about.map(e => {
       return <About key={e.id} text={e.text} />;
     });
+
     return (
       <div className="landing-container">
         <section className="landing__slider">

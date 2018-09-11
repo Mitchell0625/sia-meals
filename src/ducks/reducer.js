@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const LOGIN_USER = 'LOGIN_USER';
+const LOGOUT_USER = 'LOGOUT_USER';
 const GET_IMAGES = 'GET_IMAGES';
 const GET_SLIDER_IMAGES = 'GET_SLIDER_IMAGES';
 const ADD_IMAGE = 'ADD_IMAGE';
@@ -26,6 +27,13 @@ export function getImages() {
   return {
     type: GET_IMAGES,
     payload: axios.get('/api/getImages')
+  };
+}
+
+export function userSignOut(user) {
+  return {
+    type: LOGOUT_USER,
+    payload: user
   };
 }
 
@@ -59,6 +67,7 @@ export function updateAbout(text, id) {
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case `${LOGIN_USER}_FULFILLED`:
+      console.log(action);
       return {
         ...state,
         user: action.payload.data
@@ -84,6 +93,11 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         about: action.payload.data
+      };
+    case `${LOGOUT_USER}_FULFILLED`:
+      return {
+        ...state,
+        user: {}
       };
 
     default:
