@@ -9,7 +9,6 @@ const AddImage = ({ image }) => {
   return (
     <div className="addImage">
       <img src={image} />
-      <button>save for later</button>
     </div>
   );
 };
