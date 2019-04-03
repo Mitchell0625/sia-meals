@@ -16,6 +16,12 @@
   background-color: maroon;
   color: white;
 }
+.view__button:hover {
+  color: maroon;
+  background-color: white;
+  border: 1px solid maroon;
+  transition: 0.3s;
+}
 
 .editor__switch__h1 {
   font-size: 30px;
