@@ -4,6 +4,11 @@ const { json } = require('body-parser');
 const session = require('express-session');
 const massive = require('massive');
 const passport = require('passport');
+const AWS = require('aws-sdk');
+const fs = require('fs');
+const fileType = require('file-type');
+const bluebird = require('bluebird');
+const multiparty = require('multiparty');
 const port = 4000;
 
 //controllers
@@ -18,6 +23,26 @@ massive(process.env.CONNECTION_STRING)
     app.set('db', db);
   })
   .catch(err => console.log(err));
+
+AWS.config.update({
+  accessKeyId: process.env.MY_ACCESS_ID_AWS,
+  secretAccessKey: process.env.MY_SECRET_ACCESS_AWS
+});
+
+AWS.config.setPromisesDependency(bluebird);
+
+const s3 = new AWS.S3();
+
+const uploadFile = (buffer, name, type) => {
+  const params = {
+    ACL: 'public-read',
+    Body: buffer,
+    Bucket: process.env.BUCKET_NAME,
+    ContentType: type.mime,
+    Key: `${name}.${type.ext}`
+  };
+  return s3.upload(params).promise();
+};
 
 //routers
 const restRouter = express.Router();
